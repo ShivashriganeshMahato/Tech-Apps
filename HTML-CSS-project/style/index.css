@@ -1,0 +1,36 @@
+#navbar {
+    width: 100%;
+    height: 70px;
+    background: red;
+    margin: 0;
+}
+
+#navbar-left {
+    height: 100%;
+    float: left;
+}
+
+#navbar-right {
+    height: 100%;
+    float: right;
+}
+
+#navbar-logo img {
+    height: 70px;
+}
+
+.navbar-item {
+    display: inline-block;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navbar-item-text {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
