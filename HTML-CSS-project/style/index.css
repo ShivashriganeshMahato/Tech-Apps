@@ -1,36 +1,103 @@
 #navbar {
-    width: 100%;
-    height: 70px;
     background: red;
+    list-style-type: none;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-#navbar-left {
-    height: 100%;
+#navbar-logo {
+    background: purple;
+    width: 80px;
+    margin-right: 50px;
+}
+
+.navbar-item-left {
+    background: yellow;
     float: left;
 }
 
-#navbar-right {
-    height: 100%;
+.navbar-item-right {
+    background: blue;
     float: right;
 }
 
-#navbar-logo img {
-    height: 70px;
+.navbar-item-left a, .navbar-item-right a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 25px;
 }
 
-.navbar-item {
-    display: inline-block;
-    height: 70px;
-    line-height: 70px;
+#main {
+    background: mediumpurple;
+    padding: 40px 125px 40px 125px;
     text-align: center;
 }
 
-.navbar-item-text {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
+#main-content {
+    background: white;
+}
+
+#main-curve svg {
+    background: mediumpurple;
+}
+
+#features {
+    background: red;
+    margin-top: -6px;
+    padding-top: 50px;
+}
+
+#features-tri div {
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+
+.features-content {
+    background: green;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#integrations {
+    background: orange;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+#integrations-git {
+    background: #a48869;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#integrations-git div {
+    float: left;
+    width: 40%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background: #547464;
+    padding: 3%;
+}
+
+#integrations-content {
+    background: #696489;
+    clear: left;
+}
+
+#integrations-content div {
+    float: left;
+    width: 27%;
+    margin-left: 1%;
+    margin-right: 1%;
+    background: #547464;
+    padding: 2%;
+}
+
+#integrations-after {
+    clear: left;
+    background: #269795;
 }

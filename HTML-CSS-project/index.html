@@ -5,32 +5,127 @@
         <link rel="stylesheet" href="style/index.css">
     </head>
     <body>
-        <div id="navbar">
-            <div id="navbar-left">
-                <div id="navbar-logo" class="navbar-item">
-                    <img src="data:image/png;base64,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">
-                </div>
-                <div class="navbar-item">
-                    <span class="navbar-item-text">Features</span>
-                </div>
-                <div class="navbar-item">
-                    <span class="navbar-item-text">Enterprise</span>
-                </div>
-                <div class="navbar-item">
-                    <span class="navbar-item-text">Pricing</span>
-                </div>
-            </div>
-            <div id="navbar-right">
-            </div>
+        <div id="head">
+            <ul id="navbar">
+                <li id="navbar-logo" class="navbar-item-left">
+                    <a class="navbar-item-text">&nbsp;</a>
+                </li>
+                <li class="navbar-item-left">
+                    <a class="navbar-item-text">Features</a>
+                </li>
+                <li class="navbar-item-left">
+                    <a class="navbar-item-text">Enterprise</a>
+                </li>
+                <li class="navbar-item-left">
+                    <a class="navbar-item-text">Pricing</a>
+                </li>
+                <li class="navbar-item-right">
+                    <a class="navbar-item-text">Log in</a>
+                </li>
+                <li class="navbar-item-right">
+                    <a class="navbar-item-text">Get Started</a>
+                </li>
+            </ul>
         </div>
 
         <div id="main">
+            <div id="main-content">
+                <h1>Built for professional teams</h1>
+                <p>Maybucket is more than just Git code management. Maybucket gives teams one place to plan projects, collaborate on code, test and deploy.</p>
+                <a>Get started for free</a>
+                <p>Or host it yourself with Maybucket Enterprise -></p>
+                <img src="img/logo.png">
+            </div>
+        </div>
+        <div id="main-curve">
+            <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 68" enable-background="new 0 0 1440 68">
+                <path fill="#ff0000" d="m1622.3 1937.7c0 0-410.7 169.1-913.4 75.5-502.7-93.6-977.7 56.3-977.7 56.3v440h1891.1v-571.8" transform="translate(0-1977)"></path>
+            </svg>
         </div>
 
         <div id="features">
+            <div id="features-tri">
+                <div>
+                    Free unlimited private repos
+                </div>
+                <div>
+                    Best-in-class Jira & Trello integration
+                </div>
+                <div>
+                    Built-in Continuous Delivery
+                </div>
+            </div>
+            <div class="features-content">
+                IMG
+                CODE COLLABORATION
+                <h1>Build quality software with code review</h1>
+                <p>Approve code review more efficiently with pull requests. Create a merge checklist with designated approvers and hold discussions right in the source code with inline comments.</p>
+            </div>
+            <div class="features-content">
+                IMG
+                CONTINUOUS DELIVERY
+                <h1>Deploy often with built-in continuous delivery</h1>
+                <p>Bitbucket Pipelines with Deployments lets you build, test and deploy with integrated CI/CD. Benefit from configuration as code and fast feedback loops.</p>
+            </div>
+            <div class="features-content">
+                IMG
+                SECURITY
+                <h1>Secure your workflow</h1>
+                <p>Know your code is secure in the Cloud with IP whitelisting and required 2-step verification. Restrict access to certain users, and control their actions with branch permissions and merge checks for quality code.</p>
+            </div>
         </div>
 
         <div id="integrations">
+            <div id="integrations-git">
+                <h1>New to Git?</h1>
+                <p>No problem. We have resources to get you<br>up to speed, quickly.</p>
+                <div>
+                    IMG
+                    <br>
+                    Learn Git with interactive tutorials
+                    <br>
+                    Make Bitbucket your Git sandbox with tutorials that bring you up to speed with Git and help you build effective workflows.
+                    <br>
+                    Learn more
+                </div>
+                <div>
+                    IMG
+                    <br>
+                    Download Sourcetree, our free Git GUI.
+                    <br>
+                    Say goodbye to the command line - Sourcetree simplifies how you interact with your Git repositories so you can focus on coding.
+                    <br>
+                    Learn more
+                </div>
+            </div>
+            <div id="integrations-content">
+                <h1>Integrations: Bitbucket, but better</h1>
+                <p>Start with Bitbucket, then bring in the tools you already use to build better<br>software</p>
+                <div>
+                    IMG
+                    <br>
+                    Jira software
+                    <br>
+                    Improve efficiency by connecting branches, commits, and pull requests to Jira Software issues.
+                </div>
+                <div>
+                    IMG
+                    <br>
+                    Connect framework
+                    <br>
+                    Customize Bitbucket your way with add-ons that embed right in Bitbucket’s UI, built with Bitbucket Connect.
+                </div>
+                <div>
+                    IMG
+                    <br>
+                    Trigger webhooks
+                    <br>
+                    Integrate easily with systems you already use in your day-to-day using Bitbucket webhooks.
+                </div>
+            </div>
+            <div id="integrations-after">
+                See all integrations ->
+            </div>
         </div>
 
         <div id="pricing">
