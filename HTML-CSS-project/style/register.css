@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    background: red;
+    width: 960px;
+    height: 60px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+#navbar div {
+    height: 60px;
+}
+
+#navbar-left {
+    background: green;
+    float: left;
+}
+
+#navbar-right {
+    background: purple;
+    float: right;
+}
+
+#content {
+    background: blue;
+    width: 960px;
+    text-align: center;
+}
+
+#content-form-email {
+    width: 400px;
+}
+
+#content-form-submit {
+    width: 350px;
+}
+
+#footer {
+    background: yellow;
+    width: 960px;
+    height: 90px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
