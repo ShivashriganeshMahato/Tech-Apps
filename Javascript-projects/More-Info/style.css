@@ -1,0 +1,29 @@
+#container {
+    border: solid black 1px;
+    width: 100px;
+    padding: 20px;
+}
+
+.biggerContainer {
+    width: 225px !important;
+    height: 200px !important;
+}
+
+#text {
+    border: solid black 1px;
+    width: 100px;
+}
+
+#moreinfo {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 180px;
+    height: 150px;
+    background: grey;
+    border: solid 1px black;
+}
+
+.hidden {
+    display: none;
+}

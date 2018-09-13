@@ -1,0 +1,26 @@
+#container {
+    border: solid black 1px;
+    width: 225px;
+    height: 100px;
+    padding-top: 50px;
+}
+
+#result {
+    width: 225px;
+}
+
+.door {
+    display: inline-block;
+    margin-left: 26px;
+    margin-right: 26px;
+    width: 50px;
+    height: 100%;
+}
+
+.red {
+    background: red;
+}
+
+.blue {
+    background: blue;
+}
