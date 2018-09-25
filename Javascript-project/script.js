@@ -60,22 +60,8 @@ var List = function (name, ind) {
         var addBtn = document.createElement("SPAN");
         addBtn.className = "todoListAddBtn fas fa-plus";
         addBtn.onclick = function () {
-            // <div class="todoListTask">
-            //     <div class="todoListColorPicker">
-            //         <div class="todoListColorPickerColor red"></div>
-            //         <div class="todoListColorPickerColor yellow"></div>
-            //         <div class="todoListColorPickerColor green"></div>
-            //         <div class="todoListColorPickerColor blue"></div>
-            //         <div class="todoListColorPickerColor orange"></div>
-            //     </div>
-            //     <div class="todoListTaskCheck"></div>
-            //     <div class="todoListTaskContent"><input></div>
-            //     <div class="todoListTaskClose">
-            //         <span class="fas fa-times todoListTaskCloseBtn"></span>
-            //     </div>
-            // </div>
-
             var newFormCheck;
+            var newFormColor = "#7ed6df";
 
             var newForm = document.createElement("DIV");
             newForm.className = "todoListTask";
@@ -84,7 +70,8 @@ var List = function (name, ind) {
             picker.className = "todoListColorPicker";
 
             function setColor(e) {
-                newFormCheck.style.background = colors[e.target.className.replace("todoListColorPickerColor ", "")];
+                newFormColor = colors[e.target.className.replace("todoListColorPickerColor ", "")];
+                newFormCheck.style.background = newFormColor;
                 picker.style.display = "none";
             }
 
@@ -130,7 +117,28 @@ var List = function (name, ind) {
 
             newForm.appendChild(newFormContent);
 
+            var newFormSubmit = document.createElement("DIV");
+            newFormSubmit.className = "todoListTaskClose";
+
+            var newFormSubmitBtn = document.createElement("SPAN");
+            newFormSubmitBtn.className = "fas fa-check todoListTaskSubmitBtn";
+            newFormSubmitBtn.onclick = function (e) {
+                var newFormSubmitContent = e.target.parentElement.parentElement
+                    .children[2].children[0].value;
+                curUser.lists[ind].tasks.push({
+                    name: newFormSubmitContent,
+                    color: newFormColor,
+                    completed: false
+                });
+                setupList();
+                storeCurUser();
+            }
+            newFormSubmit.appendChild(newFormSubmitBtn);
+
+            newForm.appendChild(newFormSubmit);
+
             content.appendChild(newForm);
+            contentInput.focus();
         }
         node.appendChild(addBtn);
 
@@ -159,6 +167,7 @@ var Task = function (name, color, completed, listInd, ind) {
         node.className = "todoListTask";
 
         var check = document.createElement("DIV");
+        check.style.background = color;
         check.className = "todoListTaskCheck";
 
         var checkbox = document.createElement("SPAN");
@@ -242,23 +251,7 @@ function onLogin(e) {
             lists: [
                 {
                     name: "Hello world",
-                    tasks: [
-                        {
-                            name: "Boom",
-                            color: "white",
-                            completed: true
-                        },
-                        {
-                            name: "Boom 2",
-                            color: "white",
-                            completed: true
-                        },
-                        {
-                            name: "Boo 3m",
-                            color: "white",
-                            completed: true
-                        }
-                    ]
+                    tasks: []
                 }
             ]
         });

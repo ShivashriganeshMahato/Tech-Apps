@@ -245,6 +245,19 @@ body {
     color: #dc3545;
 }
 
+.todoListTaskSubmitBtn {
+    color: #343a40;
+    font-size: 15px;
+    margin-top: 5px;
+    transition: color 0.5s;
+    -webkit-transition: color 0.5s;
+}
+
+.todoListTaskSubmitBtn:hover {
+    cursor: pointer;
+    color: #28a745;
+}
+
 .todoListTaskContent {
     float: left;
     width: calc(100% - 90px);
