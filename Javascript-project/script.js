@@ -245,18 +245,18 @@ function updateLoginFormBtn(e) {
 
 function onLogin(e) {
     var username = $id("loginFormInput").value;
+    $id("loginFormInput").value = "";
     if (!localStorage[username]) {
         localStorage[username] = JSON.stringify({
             username: username,
-            lists: [
-                {
-                    name: "Hello world",
-                    tasks: []
-                }
-            ]
+            lists: []
         });
     }
     curUser = getUserByUsername(username);
+    $id("todoNavbarName").innerHTML += username.toLowerCase()
+        .split(' ')
+        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+        .join(' ');
     // Animate login form sliding up
     animate(5, function (end, p) {
         if (p.top <= -300) {
@@ -285,7 +285,54 @@ function onLogin(e) {
     });
 }
 
+function onLogout() {
+    // Animate login form sliding in
+    animate(5, function (end, p) {
+        if (p.opacity <= 0) {
+            end();
+        } else {
+            p.opacity -= 0.01;
+            $id("todoContainer").style.opacity = p.opacity;
+        }
+    }, {
+        opacity: 1
+    }, function () {
+        $id("todoContainer").style.display = "none";
+        $id("todoNavbarName").innerHTML = "Hello, ";
+        // Once complete, animate todo container fading in
+        animate(5, function (end, p) {
+            if (p.top >= 200) {
+                end();
+            } else {
+                p.top += 5;
+                $id("loginFormContainer").style.top = p.top + 'px';
+            }
+        }, {
+            top: -300
+        }, function () {
+            curUser = null;
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function (e) {
     $id("loginFormInput").addEventListener('input', updateLoginFormBtn);
     $id("loginFormBtn").addEventListener('click', onLogin);
+    $id("todoNavbarAdd").addEventListener('click', function () {
+        $id("todoNavbarInput").style.display = "inline";
+        $id("todoNavbarInput").focus();
+    });
+    $id("todoNavbarInput").addEventListener('keypress', function (e) {
+        if (e.keyCode === 13) {
+            $id("todoNavbarInput").style.display = "none";
+            curUser.lists.push({
+                name: $id("todoNavbarInput").value,
+                tasks: []
+            });
+            $id("todoNavbarInput").value = "";
+            storeCurUser();
+            setupList();
+        }
+    });
+    $id("todoNavbarLogout").addEventListener("click", onLogout);
 });
