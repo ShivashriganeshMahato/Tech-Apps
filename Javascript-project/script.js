@@ -6,6 +6,7 @@ var colors = {
     "orange": "#ffbe76",
     "yellow": "#f6e58d"
 }
+var prevDeleted;
 
 function storeCurUser() {
     localStorage[curUser.username] = JSON.stringify(curUser);
@@ -202,6 +203,12 @@ var Task = function (name, color, completed, listInd, ind) {
         var closeBtn = document.createElement("SPAN");
         closeBtn.className = "fas fa-times todoListTaskCloseBtn";
         closeBtn.onclick = function () {
+            prevDeleted = {
+                listInd: listInd,
+                taskInd: ind,
+                task: curUser.lists[listInd].tasks[ind]
+            };
+            $id("todoNavbarUndo").style.display = "inline";
             curUser.lists[listInd].tasks.splice(ind, 1);
             setupList();
             storeCurUser();
@@ -315,24 +322,44 @@ function onLogout() {
     });
 }
 
+function showNewListInput(e) {
+    $id("todoNavbarInput").style.display = "inline";
+    $id("todoNavbarInput").focus();
+}
+
+function onNewListInputChange() {
+    if (e.keyCode === 13) {
+        $id("todoNavbarInput").style.display = "none";
+        curUser.lists.push({
+            name: $id("todoNavbarInput").value,
+            tasks: []
+        });
+        $id("todoNavbarInput").value = "";
+        storeCurUser();
+        setupList();
+    }
+}
+
+function undoDelete(e) {
+    var p = prevDeleted;
+    curUser.lists[p.listInd].tasks.splice(p.taskInd, 0, p.task);
+    $id("todoNavbarUndo").style.display = "none";
+    setupList();
+    storeCurUser();
+}
+
 document.addEventListener("DOMContentLoaded", function (e) {
     $id("loginFormInput").addEventListener('input', updateLoginFormBtn);
     $id("loginFormBtn").addEventListener('click', onLogin);
-    $id("todoNavbarAdd").addEventListener('click', function () {
-        $id("todoNavbarInput").style.display = "inline";
-        $id("todoNavbarInput").focus();
-    });
-    $id("todoNavbarInput").addEventListener('keypress', function (e) {
-        if (e.keyCode === 13) {
-            $id("todoNavbarInput").style.display = "none";
-            curUser.lists.push({
-                name: $id("todoNavbarInput").value,
-                tasks: []
-            });
-            $id("todoNavbarInput").value = "";
-            storeCurUser();
-            setupList();
-        }
-    });
+    $id("todoNavbarAdd").addEventListener('click', showNewListInput);
+    $id("todoNavbarInput").addEventListener('keypress', onNewListInputChange);
     $id("todoNavbarLogout").addEventListener("click", onLogout);
+    $id("todoNavbarUndo").addEventListener("click", undoDelete);
+});
+
+// Close new list input if you click outside of it
+document.addEventListener("click", function (e) {
+    if (e.target.id !== "todoNavbarAdd") {
+        $id("todoNavbarInput").style.display = "none";
+    }
 });

@@ -120,6 +120,18 @@ body {
     cursor: pointer;
 }
 
+#todoNavbarUndo {
+    display: none;
+    margin-left: 10px;
+    transition: color 0.25s;
+    -webkit-transition: color 0.25s;
+}
+
+#todoNavbarUndo:hover {
+    color: #ffc107;
+    cursor: pointer;
+}
+
 #todoNavbarInput {
     display: none;
     background: transparent;
