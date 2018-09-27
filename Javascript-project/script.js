@@ -150,6 +150,26 @@ var List = function (name, ind) {
             content.appendChild(task.getDOM());
         });
 
+        node.ondragover = function (e) {
+            e.preventDefault();
+        };
+        node.ondrop = function (e) {
+            if (e.toElement.classList.contains("todoListTaskContent") ||
+                e.toElement.classList.contains("todoListTask") ||
+                e.toElement.classList.contains("todoListTaskCheck") ||
+                e.toElement.classList.contains("todoListTaskCheckBox") ||
+                e.toElement.classList.contains("todoListTaskClose") ||
+                e.toElement.classList.contains("todoListTaskCloseBtn"))
+                return;
+            e.preventDefault();
+            var list = e.dataTransfer.getData("list");
+            var task = e.dataTransfer.getData("task");
+            var elem = curUser.lists[list].tasks[task];
+            curUser.lists[list].tasks.splice(task, 1);
+            curUser.lists[ind].tasks.push(elem);
+            storeCurUser();
+            setupList();
+        };
         node.appendChild(content);
 
         return node;
@@ -215,6 +235,29 @@ var Task = function (name, color, completed, listInd, ind) {
         }
         close.appendChild(closeBtn);
 
+        node.draggable = true;
+        node.ondragstart = function (e) {
+            e.dataTransfer.setData("list", listInd);
+            e.dataTransfer.setData("task", ind);
+        };
+        node.ondragover = function (e) {
+            e.preventDefault();
+            node.style.borderTop = "solid 1px black";
+        };
+        node.ondragleave = function (e) {
+            e.preventDefault();
+            node.style.borderTop = "none";
+        };
+        node.ondrop = function (e) {
+            e.preventDefault();
+            var list = e.dataTransfer.getData("list");
+            var task = e.dataTransfer.getData("task");
+            var elem = curUser.lists[list].tasks[task];
+            curUser.lists[list].tasks.splice(task, 1);
+            curUser.lists[listInd].tasks.splice(ind, 0, elem);
+            storeCurUser();
+            setupList();
+        };
         node.appendChild(close);
 
         return node;
@@ -327,7 +370,7 @@ function showNewListInput(e) {
     $id("todoNavbarInput").focus();
 }
 
-function onNewListInputChange() {
+function onNewListInputChange(e) {
     if (e.keyCode === 13) {
         $id("todoNavbarInput").style.display = "none";
         curUser.lists.push({
