@@ -8,7 +8,25 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>My May CS</title>
+    <title>Mr May CS</title>
+
+    <style>
+        .apcs {
+            background: #b8daff;
+        }
+
+        .ta {
+            background: #f5c6cb;
+        }
+
+        .planning {
+            background: #d6d8db;
+        }
+
+        .lunch {
+            background: #c3e6cb;
+        }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,7 +47,6 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">AP Computer Science</a>
               <a class="dropdown-item" href="#">Computer Science III</a>
-              <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Technology Applications</a>
             </div>
           </li>
@@ -40,7 +57,6 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Computer Science UIL</a>
               <a class="dropdown-item" href="#">Board Game Club</a>
-              <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Robotics</a>
             </div>
           </li>
@@ -50,22 +66,142 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
-
-      <div class="jumbotron">
-        <h1 class="display-4">Computer Science!</h1>
-        <p class="lead">taught by Mr. May at Round Rock High School in room 604</p>
-        <hr class="my-4">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">AP Computer Science Principles</a></li>
-            <li class="breadcrumb-item"><a href="#">Computer Science 1</a></li>
-            <li class="breadcrumb-item"><a href="#">AP Computer Science A</a></li>
-            <li class="breadcrumb-item"><a href="#">Computer Science III</a></li>
-            <li class="breadcrumb-item"><a href="#">Technology Applications</a></li>
-          </ol>
-        </nav>
-      </div>
     </nav>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Computer Science!</h1>
+      <p class="lead">taught by Mr. May at Round Rock High School in room 604</p>
+      <hr class="my-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">AP Computer Science Principles</a></li>
+          <li class="breadcrumb-item"><a href="#">Computer Science 1</a></li>
+          <li class="breadcrumb-item"><a href="#">AP Computer Science A</a></li>
+          <li class="breadcrumb-item"><a href="#">Computer Science III</a></li>
+          <li class="breadcrumb-item"><a href="#">Technology Applications</a></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card border-0">
+              <div class="card-body">
+                <h1 class="card-title">AP Computer Science</h5>
+                <p class="card-text">Learn object oriented programming using the Java programming language.</p>
+                <a href="#" class="btn btn-secondary">View details >></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card border-0">
+              <div class="card-body">
+                <h1 class="card-title">Technology Applications</h5>
+                <p class="card-text">Make professional grade Web Applications using HTML, CSS, JavaScript, PHP, and SQL!</p>
+                <a href="#" class="btn btn-secondary">View details >></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card border-0">
+              <div class="card-body">
+                <h1 class="card-title">UIL</h5>
+                <p class="card-text">Competitive Multiple Choice Test Taking!</p>
+                <a href="#" class="btn btn-secondary">View details >></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="card mb-12">
+          <div class="card-header">Schedule</div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <th scope="col">A Day</th>
+                      <th scope="col">Class</th>
+                      <th scope="col">B Day</th>
+                      <th scope="col">Class</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td class="apcs">AP Computer Science</td>
+                      <th scope="row">5</th>
+                      <td class="ta">Tech Apps</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td class="planning">Planning</td>
+                      <th scope="row">6</th>
+                      <td class="apcs">AP Computer Science</td>
+                    </tr>
+                    <tr>
+                      <th class="lunch" scope="col" colspan="4">A Lunch</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td class="apcs">AP Computer Science</td>
+                      <th scope="row">7</th>
+                      <td class="ta">Tech Apps</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td class="apcs">AP Computer Science</td>
+                      <th scope="row">8</th>
+                      <td class="planning">Planning</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="card mb-12">
+          <div class="card-header">Signup for Mailing List</div>
+            <div class="card-body">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">s</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="validationTooltipUsernamePrepend">@roundrockisd.org</span>
+                    </div>
+                      <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Choose Period
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">APCS (P1)</a>
+                        <a class="dropdown-item" href="#">APCS (P3)</a>
+                        <a class="dropdown-item" href="#">APCS (P4)</a>
+                        <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Tech Apps (P5)</a>
+                          <a class="dropdown-item" href="#">APCS (P6)</a>
+                          <a class="dropdown-item" href="#">Tech Apps (P7)</a>
+                      </div>
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
