@@ -1,0 +1,17 @@
+#pokeForm {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#pokeInput {
+    width: 200px;
+    margin: 0 auto 0 auto ;
+}
+
+#pokeTitle {
+    margin-bottom: 50px;
+}
+
+ul {
+    list-style: none;
+}
