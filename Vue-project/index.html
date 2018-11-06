@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen" title="main">
+</head>
+
+<body>
+    <div id="app">
+        <div class="jumbotron">
+            <h1 class="display-4">The Good Store</h1>
+            <p class="lead">Browse some cool stuff and select whatever you want.</p>
+            <hr class="my-4">
+            <p>Current total: {{total}}</p>
+        </div>
+        <div class="container text-center">
+            <span id="newItemBtn" class="fas fa-plus" data-toggle="modal" data-target="#newItemModal"></span>
+            <br><br>
+            <div class="row" v-for="row in projects">
+                <div class="col-sm-4" v-for="project in row">
+                    <div class="card"
+                        v-bind:class="[project.selected ? 'bg-primary' : 'bg-light',
+                            project.selected ? 'text-light' : 'text-dark']"
+                        v-on:click="toggleSelect(project)">
+                        <p>{{project.price}}</p>
+                        <img class="card-img-top bg-light" v-bind:src="project.image" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">{{project.desc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="newItemModal" tabindex="-1" role="dialog" aria-labelledby="newItemModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newItemModalLabel">New Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="imageLink">Image link</label>
+                                <input type="text" class="form-control" id="imageLink" aria-describedby="linkHelp" placeholder="Enter link">
+                            </div>
+                            <div class="form-group">
+                                <label for="imageLink">Price</label>
+                                <input type="text" class="form-control" id="price" aria-describedby="priceHelp" placeholder="Enter price ($)">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="5"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insertItem()">Insert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

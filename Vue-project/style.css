@@ -1,0 +1,36 @@
+.card {
+    height: 300px;
+    padding: 5px;
+    overflow-y: scroll;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.row {
+    margin-bottom: 25px;
+}
+
+#newItemBtn {
+    -webkit-transition: color .5s;
+    transition: color .5s;
+}
+
+#newItemBtn:hover {
+    color: #28a745;
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #343a40;
+}
