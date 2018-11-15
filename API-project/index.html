@@ -12,47 +12,33 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Pokedex</title>
+    <title>Fun Translator</title>
 </head>
 
 <body>
     <div id="app" class="container">
-        <form id="pokeForm">
+        <form id="funForm">
             <div class="form-group">
-                <label for="pokeInput">Enter Pokenumber</label>
-                <input type="value" class="form-control" id="pokeInput" placeholder="Pokenumber">
+                <label for="funInput">Enter text to translate</label>
+                <div class="input-group">
+                    <input id="funInput" type="text" class="form-control" aria-label="Text to translate" placeholder="First pick a language">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span v-if="language === ''">Language</span>
+                            <span v-if="language !== ''">{{language}}</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" v-for="lang in languages" v-on:click="setLang">
+                                {{lang}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
-        <div id="pokeContent" v-if="valid">
-            <div id="pokeTitle">
-                <img v-bind:src="image" v-bind:alt="pokemon" width="50"> {{pokemon}}
-            </div>
-            <div id="pokeFacts" class="row">
-                <div class="col-4">
-                    <h2>Types</h2>
-                    <ul>
-                        <li v-for="type in types">
-                            {{type}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-4">
-                    <h2>Stats</h2>
-                    <ul>
-                        <li v-for="(val, key) in stats">
-                            {{key}}: {{val}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-4">
-                    <h2>Abilities</h2>
-                    <ul>
-                        <li v-for="ability in abilities">
-                            {{ability}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div id="funContent" v-if="!valid">
+            <h3>Text: {{original}}</h3>
+            <h2>Translation: {{translation}}<h2>
         </div>
     </div>
 </body>
