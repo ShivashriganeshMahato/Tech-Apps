@@ -25,33 +25,39 @@
         </form>
         <div id="pokeContent" v-if="valid">
             <div id="pokeTitle">
-                <img v-bind:src="image" v-bind:alt="pokemon" width="50">
+                <img v-bind:src="image" v-bind:alt="pokemon" width="100">
                 {{pokemon}}
             </div>
             <div id="pokeFacts" class="row">
-                <div class="col-4">
-                    <h2>Types</h2>
-                    <ul>
-                        <li v-for="type in types">
-                            {{type}}
-                        </li>
-                    </ul>
+                <div class="col-4 card">
+                    <div class="card-body text-white bg-primary">
+                        <h2 class="card-title">Types</h5>
+                        <ul>
+                            <li v-for="type in types">
+                                {{type}}
+                            </li>
+                        </ul>
+                     </div>
                 </div>
-                <div class="col-4">
-                    <h2>Stats</h2>
-                    <ul>
-                        <li v-for="(val, key) in stats">
-                            {{key}}: {{val}}
-                        </li>
-                    </ul>
+                <div class="col-4 card">
+                    <div class="card-body text-white bg-danger">
+                        <h2 class="card-title">Stats</h2>
+                        <ul>
+                            <li v-for="(val, key) in stats">
+                                {{key}}: {{val}}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <h2>Abilities</h2>
-                    <ul>
-                        <li v-for="ability in abilities">
-                            {{ability}}
-                        </li>
-                    </ul>
+                <div class="col-4 card">
+                    <div class="card-body text-white bg-info">
+                        <h2 class="card-title">Abilities</h2>
+                        <ul>
+                            <li v-for="ability in abilities">
+                                {{ability}}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

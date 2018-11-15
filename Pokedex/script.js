@@ -58,7 +58,7 @@ $(function() {
         let abilities = [];
 
         data.abilities.forEach(ability => {
-            abilities.push(toTitleCase(ability.ability.name));
+            abilities.push(toTitleCase(ability.ability.name.replace("-", " ")));
         });
 
         return abilities;
