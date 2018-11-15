@@ -34,7 +34,6 @@ $(function() {
         fetchTranslation(text, function (data) {
             app.valid = true;
             app.translation = data.contents.translated;
-            console.log(app.translation);
         });
     };
 
