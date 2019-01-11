@@ -38,21 +38,53 @@ The following table shows several guesses and the hints that would be produced.
   $puzzle->getHint("HARPS")     "HARPS"
 
 Write the complete HiddenWord class, including any necessary instance variables,
-its constructor, and the method, getHint, described above. You may ssume that
+its constructor, and the method, getHint, described above. You may assume that
 the length of the guess is the same as the length of the hidden word.
 */
 
+/**
+ * Generate hidden word and allow testing words against
+  */
+class HiddenWord {
+    private $word;
 
+    public function __construct($word) {
+        $this->word = str_split($word);
+    }
 
+    public function getHintChar($i, $tChar) {
+        if ($this->word[$i] == $tChar) {
+            return $tChar;
+        } else if (in_array($tChar, $this->word)) {
+            return "+";
+        } else {
+            return "*";
+        }
+    }
 
+    public function getHint($testWord) {
+        $tWord = str_split($testWord);
+        $hint = "";
 
+        foreach ($tWord as $i => $tChar) {
+            $hint .= $this->getHintChar($i, $tChar);
+        }
 
+        return $hint;
+    }
+}
 
+$puzzle = new HiddenWord("HARPS");
 
-// Write code to test your HiddenWord class below here
-
-
-
+echo $puzzle->getHint("AAAAA");     //"+A+++"
+echo "<br>";
+echo $puzzle->getHint("HELLO");     //"H****"
+echo "<br>";
+echo $puzzle->getHint("HEART");     //"H*++*"
+echo "<br>";
+echo $puzzle->getHint("HARMS");     //"HAR*S"
+echo "<br>";
+echo $puzzle->getHint("HARPS");     //"HARPS"
 
 
 

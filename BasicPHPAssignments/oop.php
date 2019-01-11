@@ -10,65 +10,92 @@ Each menu item has a name and a price. The four types of menu items are represen
 by the four classes Sandwich, Salad, Drink, and Trio. All four classes implement
 the MenuItem iterface.
 */
+interface MenuItem {
+    /** @return the name of the menu item */
+    public function getName();
 
-interface MenuItem
-{
-  /** @return the name of the menu item */
-  public function getName();
-
-  /** @return the price of the menu item */
-  public function getPrice();
+    /** @return the price of the menu item */
+    public function getPrice();
 }
 
-class Sandwich implements MenuItem
-{
-  private $name, $price;
+class Sandwich implements MenuItem {
+    private $name, $price;
 
-  public function __construct($name, $price)
-  {
-    $this->name = $name;
-    $this->price = $price;
-  }
+    public function __construct($name, $price) {
+        $this->name = $name;
+        $this->price = $price;
+    }
 
-  public function getName()
-  { return $this->name; }
+    public function getName() {
+        return $this->name;
+    }
 
-  public function getPrice()
-  { return $this->price; }
+    public function getPrice() {
+        return $this->price;
+    }
 }
 
-class Salad implements MenuItem
-{
-  private $name, $price;
+class Salad implements MenuItem {
+    private $name, $price;
 
-  public function __construct($name, $price)
-  {
-    $this->name = $name;
-    $this->price = $price;
-  }
+    public function __construct($name, $price) {
+        $this->name = $name;
+        $this->price = $price;
+    }
 
-  public function getName()
-  { return $this->name; }
+    public function getName() {
+        return $this->name;
+    }
 
-  public function getPrice()
-  { return $this->price; }
+    public function getPrice() {
+        return $this->price;
+    }
 }
 
-class Drink implements MenuItem
-{
-  private $name, $price;
+class Drink implements MenuItem {
+    private $name, $price;
 
-  public function __construct($name, $price)
-  {
-    $this->name = $name;
-    $this->price = $price;
-  }
+    public function __construct($name, $price) {
+        $this->name = $name;
+        $this->price = $price;
+    }
 
-  public function getName()
-  { return $this->name; }
+    public function getName() {
+        return $this->name;
+    }
 
-  public function getPrice()
-  { return $this->price; }
+    public function getPrice() {
+        return $this->price;
+    }
+}
+
+class Trio implements MenuItem {
+    private $name, $price, $sandwich, $salad, $drink;
+
+    function __construct($sandwich, $salad, $drink) {
+        $this->sandwich = $sandwich;
+        $this->salad = $salad;
+        $this->drink = $drink;
+        $this->name = $sandwich->getName() . "/" . $salad->getName() . "/" .
+            $drink->getName() . " Trio";
+        // Get all prices in array
+        $prices = [$sandwich->getPrice(), $salad->getPrice(), $drink->getPrice()];
+        // Find index of lowest price
+        $lowest = array_search(min($prices), $prices);
+        // Remove lowest price
+        unset($prices[$lowest]);
+        // Reindex array
+        $prices = array_values($prices);
+        $this->price = $prices[0] + $prices[1];
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getPrice() {
+        return $this->price;
+    }
 }
 
 /*
@@ -90,20 +117,18 @@ must include a constructor that takes three parameters representing a sandwich,
 salad, and drink (in that order).
 */
 
+$sw = new Sandwich("Cheeseburger", 2.75);
+$salad = new Sandwich("Spinach Salad", 1.25);
+$drink = new Sandwich("Orange Soda", 1.25);
+$trio = new Trio($sw, $salad, $drink);
+echo $trio->getName() . "<br>";
+echo $trio->getPrice() . "<br>";
 
+$sw2 = new Sandwich("Club Sandwich", 2.75);
+$salad2 = new Sandwich("Coleslaw", 1.25);
+$drink2 = new Sandwich("Cappuccino", 3.50);
+$trio2 = new Trio($sw2, $salad2, $drink2);
+echo $trio2->getName() . "<br>";
+echo $trio2->getPrice() . "<br>";
 
-
-
-
-
-
-
-//Write code to test your Trio class below
-
-
-
-
-
-
-
- ?>
+?>
