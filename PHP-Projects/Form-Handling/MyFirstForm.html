@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My First Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form class="w-25" method="get" action="MyFirstFormHandler.php">
+            <div class="form-group">
+                <label>Favorite Color</label>
+                <input type="text" name="color" class="form-control" placeholder="Enter color">
+            </div>
+            <div class="form-group">
+                <label>Favorite Ice Cream</label>
+                <input type="text" name="icecream" class="form-control" placeholder="Enter ice cream">
+            </div>
+            <div class="form-group">
+                <label>Best Shape</label>
+                <input type="text" name="shape" class="form-control" placeholder="Enter shape">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br><br>
+        <form class="w-25" method="post" action="MyFirstFormHandler.php">
+            <div class="form-group">
+                <label>Favorite Color</label>
+                <input type="text" name="color" class="form-control" placeholder="Enter color">
+            </div>
+            <div class="form-group">
+                <label>Favorite Ice Cream</label>
+                <input type="text" name="icecream" class="form-control" placeholder="Enter ice cream">
+            </div>
+            <div class="form-group">
+                <label>Best Shape</label>
+                <input type="text" name="shape" class="form-control" placeholder="Enter shape">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    <div>
+</body>
+
+</html>
