@@ -1,6 +1,5 @@
 <?php
-echo "fopxcjv";
-$username = $_POST['username'];
+$uname = $_POST['username'];
 $pwd = $_POST['password'];
 
 $servername = "localhost";
@@ -15,20 +14,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM user";
-if ($res = $conn->query($sql)) {
+$sql = "SELECT username FROM user WHERE username=? AND password=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $uname, $pwd);
+$stmt->execute();
+$stmt->bind_result($fetched_username);
+$stmt->fetch();
 
-  /* Check the number of rows that match the SELECT statement */
-  if ($res->fetchColumn() > 0) {
-      echo "boom";
-  }
-  /* No rows matched -- do something else */
-  else {
-      echo "nope";
-  }
+if ($fetched_username) {
+    echo "Success";
+} else {
+    echo "Failure";
 }
 
-$res = null;
-$conn = null;
+$stmt->close();
+$conn->close();
 
 ?>

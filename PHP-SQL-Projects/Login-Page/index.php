@@ -14,9 +14,12 @@
     </head>
     <body>
         <div class="jumbotron">
-            <h1 class="display-4">Welcome!</h1>
+            <h1 class="display-4">Welcome to Fake Twitter!</h1>
+            <p class="lead">It's a lot worse than the real Twitter.</p>
+            <hr>
             <p class="lead"><a href="register.php">Register</a></p>
             <p class="lead"><a href="login.php">Login</a></p>
         </div>
+        <p>Recent tweets</p>
     </body>
 </html>
