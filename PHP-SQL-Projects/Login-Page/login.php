@@ -13,20 +13,28 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
         <style>
-            
+
         </style>
     </head>
     <body>
-        <form method="post" action="checklogin.php">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <button class="btn btn-primary">Submit</button>
-        </form>
+        <?php
+            if (isset($_GET['registered'])) {
+                echo "<div class='alert alert-success' role='alert'>Account successfully created! Now log in.</div>";
+            }
+        ?>
+        <a href="index.php">Landing</a>
+        <div class="container">
+            <form method="post" action="checklogin.php">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
-$uname = $_POST['username'];
-$pwd = $_POST['password'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
 
 include 'credentials.php';
 
@@ -12,9 +12,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO user (username, password) VALUES (?, ?)";
+$sql = "INSERT INTO actor (first_name, last_name) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $uname, $pwd);
+$stmt->bind_param("ss", $firstname, $lastname);
 
 if ($stmt->execute()) {
     echo "New record created successfully";
@@ -23,8 +23,5 @@ if ($stmt->execute()) {
 }
 
 $conn->close();
-
-header("Location: login.php?registered");
-die();
 
 ?>

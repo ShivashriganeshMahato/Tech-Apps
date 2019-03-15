@@ -19,12 +19,12 @@ $stmt->bind_param("ss", $userid, $content);
 $stmt->execute();
 $tweetid = $stmt->insert_id;
 
-function addHashtag($conn, $content, $tweetid) {
-    $sql = "SELECT content FROM hashtag WHERE content=?";
+function addHashtag($conn, $content, $tweetid, $servername, $username, $password, $dbname) {
+    $sql = "SELECT id, content FROM hashtag WHERE content=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $content);
     $stmt->execute();
-    $stmt->bind_result($fetched_content);
+    $stmt->bind_result($hashtagid, $fetched_content);
     $stmt->fetch();
 
     if (!$fetched_content) {
@@ -33,19 +33,31 @@ function addHashtag($conn, $content, $tweetid) {
         $stmt->bind_param("s", $content);
         $stmt->execute();
         $hashtagid = $stmt->insert_id;
-
-        $sql = "INSERT INTO hashtag_tweet (hashtagid, tweetid) VALUES (?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $hashtagid, $tweetid);
-        $stmt->execute();
     }
+
+    $conn->close();
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "INSERT INTO hashtag_tweet (hashtagid, tweetid) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $hashtagid, $tweetid);
+    $stmt->execute();
 }
 
-preg_match_all("/#([0-9a-zA-Z_]+)/U", $content, $pat_array);
+preg_match_all("/\#([a-zA-Z0-9_]+)/i", $content, $pat_array);
 
 foreach ($pat_array[1] as $i => $hashtag) {
-    addHashtag($conn, strtolower($hashtag), $tweetid);
+    addHashtag($conn, strtolower($hashtag), $tweetid, $servername, $username, $password, $dbname);
 }
 
 $conn->close();
+
+header("Location: home.php");
+die();
 ?>
