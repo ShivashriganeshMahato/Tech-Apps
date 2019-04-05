@@ -1,7 +1,9 @@
 <?php
 
 $name = $_POST['name'];
-$lastname = $_POST['lastname'];
+$description = $_POST['description'];
+$release_year = $_POST['release'];
+$actorName = $_POST['actor_name'];
 
 include 'credentials.php';
 
@@ -12,9 +14,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO actor (first_name, last_name) VALUES (?, ?)";
+$sql = "INSERT INTO film (title, description, release_year) VALUES (?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $firstname, $lastname);
+$stmt->bind_param("sss", $name, $description, $release_year);
 
 if ($stmt->execute()) {
     echo "New record created successfully";
