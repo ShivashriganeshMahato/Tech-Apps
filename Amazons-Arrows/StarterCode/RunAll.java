@@ -4,13 +4,13 @@ public class RunAll {
  {
   int port = 8082;
   
-  new AmazonsServer(port);
+  new AmazonsServer(port, 100);
   
   AmazonsClient clientA = new AmazonsClient();
   AmazonsClient clientB = new AmazonsClient();
   
   clientA.registerListener(new MyAIClientListener());
-  clientA.registerListener(new GUIListener());
+//  clientA.registerListener(new GUIListener());
   
   clientB.registerListener(new RandomAIClientListener("ClientB"));
   
