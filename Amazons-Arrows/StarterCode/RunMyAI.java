@@ -19,7 +19,7 @@ public class RunMyAI {
 			
 			AmazonsClient clientA = new AmazonsClient();
 			clientA.registerListener(new MyAIClientListener());
-			clientA.registerListener(new GUIListener());
+//			clientA.registerListener(new GUIListener());
 			
 			clientA.connect(ip, port);
 		}

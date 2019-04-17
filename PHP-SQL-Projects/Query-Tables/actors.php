@@ -3,7 +3,7 @@
 include 'credentials.php';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $db);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn -> connect_error) {
@@ -25,6 +25,10 @@ while ($row = $result->fetch_assoc()) {
     echo "      <td>" . $row['title'] . "</td>";
     echo "  </tr>";
 }
+echo "  <tr>";
+echo "      <td>Mr. May</td>";
+echo "      <td>The Great Escape</td>";
+echo "  </tr>";
 echo "</table>";
 
 ?>

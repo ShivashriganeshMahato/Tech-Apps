@@ -24,4 +24,7 @@ if ($stmt->execute()) {
 
 $conn->close();
 
+header("Location: actors.php");
+die();
+
 ?>

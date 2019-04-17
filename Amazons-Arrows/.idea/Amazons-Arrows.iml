@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <output url="file:///out" />
+    <output url="file://$MODULE_DIR$/StarterCode/out" />
     <output-test url="file:///test/Amazons-Arrows" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -9,6 +9,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="AmazonsAndArrows" level="project" />
+    <orderEntry type="library" name="AmazonsAndArrows_1.2.3" level="project" />
   </component>
 </module>
